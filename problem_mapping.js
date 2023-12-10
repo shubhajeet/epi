@@ -1222,7 +1222,7 @@ problem_mapping = {
                 "total": 152
             },
             "Python: sorted_arrays_merge.py": {
-                "passed": 0,
+                "passed": 152,
                 "total": 152
             }
         },
@@ -1308,7 +1308,7 @@ problem_mapping = {
                 "total": 314
             },
             "Python: search_first_key.py": {
-                "passed": 0,
+                "passed": 314,
                 "total": 314
             }
         },
@@ -1464,7 +1464,7 @@ problem_mapping = {
                 "total": 305
             },
             "Python: is_string_permutable_to_palindrome.py": {
-                "passed": 0,
+                "passed": 305,
                 "total": 305
             }
         },
@@ -1478,7 +1478,7 @@ problem_mapping = {
                 "total": 212
             },
             "Python: is_anonymous_letter_constructible.py": {
-                "passed": 0,
+                "passed": 212,
                 "total": 212
             }
         },
@@ -1620,7 +1620,7 @@ problem_mapping = {
                 "total": 202
             },
             "Python: intersect_sorted_arrays.py": {
-                "passed": 0,
+                "passed": 202,
                 "total": 202
             }
         },
