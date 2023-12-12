@@ -2340,7 +2340,7 @@ problem_mapping = {
                 "total": 500
             },
             "Python: task_pairing.py": {
-                "passed": 0,
+                "passed": 500,
                 "total": 500
             }
         },
@@ -2394,7 +2394,7 @@ problem_mapping = {
                 "total": 1008
             },
             "Python: three_sum.py": {
-                "passed": 0,
+                "passed": 1008,
                 "total": 1008
             }
         },
