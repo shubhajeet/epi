@@ -15,7 +15,28 @@ Coordinate = collections.namedtuple('Coordinate', ('x', 'y'))
 def search_maze(maze: List[List[int]], s: Coordinate,
                 e: Coordinate) -> List[Coordinate]:
     # TODO - you fill in here.
-    return []
+    path = []
+
+    def dfs(cur, path):
+        print("dfs cur: x: {}, y: {}".format(cur.x, cur.y))
+        # print("dfs path: {}".format(path))
+        copied_path = path.copy()
+        copied_path.append(cur)
+        if cur == e:
+            return copied_path
+        else:
+            for next in [Coordinate(cur[0] + 1, cur[1]), Coordinate(cur[0] - 1, cur[1]), Coordinate(cur[0], cur[1] + 1), Coordinate(cur[0], cur[1] - 1)]:
+                if path_element_is_feasible(maze, cur, next):
+                    if next in copied_path:
+                        continue
+                    else:
+                        fpath = dfs(next, copied_path)
+                        if len(fpath) > 0:
+                            return fpath
+            return []
+    fpath = dfs(s, path)
+    print(fpath)
+    return fpath
 
 
 def path_element_is_feasible(maze, prev, cur):
@@ -23,9 +44,9 @@ def path_element_is_feasible(maze, prev, cur):
             (0 <= cur.y < len(maze[cur.x])) and maze[cur.x][cur.y] == WHITE):
         return False
     return cur == (prev.x + 1, prev.y) or \
-           cur == (prev.x - 1, prev.y) or \
-           cur == (prev.x, prev.y + 1) or \
-           cur == (prev.x, prev.y - 1)
+        cur == (prev.x - 1, prev.y) or \
+        cur == (prev.x, prev.y + 1) or \
+        cur == (prev.x, prev.y - 1)
 
 
 @enable_executor_hook
