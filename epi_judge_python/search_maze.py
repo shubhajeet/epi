@@ -17,6 +17,13 @@ def search_maze(maze: List[List[int]], s: Coordinate,
     # TODO - you fill in here.
     path = []
 
+    def neighbors(cur):
+        neighbor = []
+        for n in [Coordinate(cur[0] + 1, cur[1]), Coordinate(cur[0] - 1, cur[1]), Coordinate(cur[0], cur[1] + 1), Coordinate(cur[0], cur[1] - 1)]:
+            if path_element_is_feasible(maze, cur, n):
+                neighbor.append(n)
+        return neighbor
+
     def dfs(cur, path):
         print("dfs cur: x: {}, y: {}".format(cur.x, cur.y))
         # print("dfs path: {}".format(path))
@@ -25,14 +32,13 @@ def search_maze(maze: List[List[int]], s: Coordinate,
         if cur == e:
             return copied_path
         else:
-            for next in [Coordinate(cur[0] + 1, cur[1]), Coordinate(cur[0] - 1, cur[1]), Coordinate(cur[0], cur[1] + 1), Coordinate(cur[0], cur[1] - 1)]:
-                if path_element_is_feasible(maze, cur, next):
-                    if next in copied_path:
-                        continue
-                    else:
-                        fpath = dfs(next, copied_path)
-                        if len(fpath) > 0:
-                            return fpath
+            for next in neighbors(cur):
+                if next in copied_path:
+                    continue
+                else:
+                    fpath = dfs(next, copied_path)
+                    if len(fpath) > 0:
+                        return fpath
             return []
     fpath = dfs(s, path)
     print(fpath)
