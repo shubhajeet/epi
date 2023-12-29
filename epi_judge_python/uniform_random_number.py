@@ -13,7 +13,13 @@ def zero_one_random():
 
 def uniform_random(lower_bound: int, upper_bound: int) -> int:
     # TODO - you fill in here.
-    return 0
+    range_size = upper_bound - lower_bound + 1
+    result = 0
+    for i in range(range_size):
+        result = (result << 1) | zero_one_random()
+    num = result + lower_bound
+    print(num)
+    return num
 
 
 @enable_executor_hook

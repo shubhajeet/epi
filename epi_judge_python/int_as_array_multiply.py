@@ -5,7 +5,16 @@ from test_framework import generic_test
 
 def multiply(num1: List[int], num2: List[int]) -> List[int]:
     # TODO - you fill in here.
-    return []
+    result = [0 for i in range(len(num1) + len(num2))]
+    for i in range(len(num1)):
+        for j in range(len(num2)):
+            result[i + j + 1] += num1[i] * num2[j]
+    for i in reversed(range(len(result))):
+        if result[i] >= 10:
+            result[i - 1] += result[i] // 10
+            result[i] %= 10
+    print(result)
+    return result
 
 
 if __name__ == '__main__':

@@ -5,7 +5,13 @@ from test_framework import generic_test
 
 def plus_one(A: List[int]) -> List[int]:
     # TODO - you fill in here.
-    return []
+    for i in reversed(range(len(A))):
+        if A[i] == 9:
+            A[i] = 0
+        else:
+            A[i] += 1
+            return A
+    return [1] + A
 
 
 if __name__ == '__main__':
