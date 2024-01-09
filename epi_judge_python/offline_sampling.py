@@ -6,10 +6,14 @@ from test_framework.random_sequence_checker import (
     binomial_coefficient, check_sequence_is_uniformly_random,
     compute_combination_idx, run_func_with_retries)
 from test_framework.test_utils import enable_executor_hook
+import random
 
 
 def random_sampling(k: int, A: List[int]) -> None:
     # TODO - you fill in here.
+    for i in range(k):
+        r = i + random.randint(0, len(A) - i - 1)
+        A[i], A[r] = A[r], A[i]
     return
 
 
