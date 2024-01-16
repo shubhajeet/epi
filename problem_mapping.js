@@ -362,7 +362,7 @@ problem_mapping = {
                 "total": 7
             },
             "Python: online_sampling.py": {
-                "passed": 0,
+                "passed": 7,
                 "total": 7
             }
         },
@@ -376,7 +376,7 @@ problem_mapping = {
                 "total": 6
             },
             "Python: random_permutation.py": {
-                "passed": 0,
+                "passed": 2,
                 "total": 6
             }
         },

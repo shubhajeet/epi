@@ -6,12 +6,25 @@ from test_framework.random_sequence_checker import (
     binomial_coefficient, check_sequence_is_uniformly_random,
     compute_combination_idx, run_func_with_retries)
 from test_framework.test_utils import enable_executor_hook
-
+import random
 
 # Assumption: there are at least k elements in the stream.
+
+
 def online_random_sample(stream: Iterator[int], k: int) -> List[int]:
     # TODO - you fill in here.
-    return []
+    count = 0
+    klist = []
+    for d in stream:
+        count += 1
+        if len(klist) < k:
+            klist.append(d)
+        else:
+            r = random.random()
+            if r < k/count:
+                idx = random.randint(0, k-1)
+                klist[idx] = d
+    return klist
 
 
 @enable_executor_hook
